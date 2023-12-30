@@ -1,0 +1,8 @@
+{
+    "propel": {
+        "paths": {
+            "schemaDir": "C:\\xampp\\htdocs\\lab2_1",
+            "phpDir": "C:\\xampp\\htdocs\\lab2_1\\generated-classes"
+        }
+    }
+}

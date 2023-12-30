@@ -1,0 +1,12 @@
+{
+    "require": {
+        "propel/propel": "~2.0@beta",
+        "monolog/monolog": "^3.5",
+        "fakerphp/faker": "^1.23"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\Model\\": "generated-classes/Base"
+        }
+    }
+}

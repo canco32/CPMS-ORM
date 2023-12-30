@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<database name="default" defaultIdMethod="native" defaultPhpNamingMethod="underscore">
+  <table name="department" idMethod="native" phpName="Department">
+    <column name="department_id" phpName="DepartmentId" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="department_name" phpName="DepartmentName" type="VARCHAR" required="true"/>
+  </table>
+  <table name="employees" idMethod="native" phpName="Employees">
+    <column name="employee_id" phpName="EmployeeId" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="employee_name" phpName="EmployeeName" type="VARCHAR" required="true"/>
+    <column name="employee_position" phpName="EmployeePosition" type="VARCHAR" required="true"/>
+    <column name="employee_department" phpName="EmployeeDepartment" type="INTEGER" required="true"/>
+    <column name="employee_salary" phpName="EmployeeSalary" type="VARCHAR" required="true"/>
+    <foreign-key foreignTable="department" name="employees_employee_department_fkey">
+      <reference local="employee_department" foreign="department_id"/>
+    </foreign-key>
+  </table>
+  <table name="project" idMethod="native" phpName="Project">
+    <column name="project_id" phpName="ProjectId" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="project_name" phpName="ProjectName" type="VARCHAR" required="true"/>
+    <column name="project_department" phpName="ProjectDepartment" type="INTEGER" required="true"/>
+    <foreign-key foreignTable="department" name="project_project_department_fkey">
+      <reference local="project_department" foreign="department_id"/>
+    </foreign-key>
+  </table>
+  <table name="tasks" idMethod="native" phpName="Tasks">
+    <column name="task_id" phpName="TaskId" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="task_name" phpName="TaskName" type="VARCHAR" required="true"/>
+    <column name="task_project" phpName="TaskProject" type="INTEGER" required="true"/>
+    <column name="task_employee" phpName="TaskEmployee" type="INTEGER" required="true"/>
+    <column name="task_date" phpName="TaskDate" type="TIMESTAMP" required="true"/>
+    <column name="task_deadline" phpName="TaskDeadline" type="TIMESTAMP" required="true"/>
+    <foreign-key foreignTable="employees" name="tasks_task_employee_fkey">
+      <reference local="task_employee" foreign="employee_id"/>
+    </foreign-key>
+    <foreign-key foreignTable="project" name="tasks_task_project_fkey">
+      <reference local="task_project" foreign="project_id"/>
+    </foreign-key>
+  </table>
+</database>

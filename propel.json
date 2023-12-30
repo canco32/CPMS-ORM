@@ -1,0 +1,17 @@
+{
+    "propel": {
+        "database": {
+            "connections": {
+                "default": {
+                    "adapter": "pgsql",
+                    "dsn": "pgsql:host=localhost;port=5432;dbname=postgres",
+                    "user": "postgres",
+                    "password": "1",
+                    "settings": {
+                        "charset": "utf8"
+                    }
+                }
+            }
+        }
+    }
+}
